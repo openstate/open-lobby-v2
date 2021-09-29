@@ -1,0 +1,26 @@
+openlobby:
+  elasticsearch:
+    host: elasticsearch
+    port: 9200
+    timeout: 20
+    indices:
+      documents:
+        query:
+          fields:
+            - title
+            - description
+        highlight:
+          fields:
+            title: {}
+            description: {}
+        aggregations:
+          source:
+            terms:
+              field: "source.keyword"
+          location:
+            terms:
+              field: "location.keyword"
+    aggregations:
+      kind:
+        terms:
+          field: "kind.keyword"

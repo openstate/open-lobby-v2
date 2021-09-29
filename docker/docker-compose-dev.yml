@@ -1,0 +1,13 @@
+version: "2.1"
+services:
+  nginx:
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx-dev/:/etc/nginx/
+    restart: "no"
+  api-openlobby:
+    environment:
+      OAUTHLIB_INSECURE_TRANSPORT: "1"
+  node:
+    restart: "no"

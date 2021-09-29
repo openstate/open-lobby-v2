@@ -1,0 +1,99 @@
+version: "2.1"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    depends_on:
+      - api-openlobby
+      - fusionauth
+    volumes:
+      - ./nginx-start/:/opt/nginx/
+      - ./nginx/:/etc/nginx/
+      - ../public/:/usr/share/nginx/html/
+      - ../www/:/usr/share/nginx/html-www/
+    restart: always
+    networks:
+      - nginx-load-balancer
+      - openlobby
+  api-openlobby:
+    build:
+      context: ../backend/app
+      dockerfile: Dockerfile
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ../backend:/opt/openlobby
+    environment:
+      OAUTHLIB_INSECURE_TRANSPORT: "1"
+    networks:
+      - openlobby
+    restart: always
+    command: flask run --host=0.0.0.0
+  node:
+    image: node:12.9.1
+    working_dir: /opt/app/static
+    networks:
+      - openlobby
+    volumes:
+      - ../:/opt/app
+    restart: always
+    # Use this to keep the container running
+    tty: true
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    volumes:
+      - ../backend:/opt/openlobby
+    networks:
+      - openlobby
+    restart: always
+  mysql:
+    image: mysql:5.7.21
+    # This root password will be overwritten with the password used in
+    # the backup that will be restored from a .sql file in the
+    # docker-entrypoint-initdb.d directory.
+    environment:
+      - MYSQL_DATABASE=openlobby
+      - MYSQL_ROOT_PASSWORD=openlobby
+    networks:
+      - openlobby
+    volumes:
+      - openlobby-mysql-volume:/var/lib/mysql
+      - "./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
+    restart: always
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+  elasticsearch:
+    image: "docker.elastic.co/elasticsearch/elasticsearch:${ES_VERSION}"
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+      - cluster.name=ras-cluster
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.monitoring.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    restart: always
+    networks:
+      - openlobby
+volumes:
+  esdata:
+    driver: local
+  openlobby-mysql-volume:
+    driver: local
+  fa_config:
+    driver: local
+networks:
+  openlobby:
+  nginx-load-balancer:
+    external:
+      name: docker_nginx-load-balancer
