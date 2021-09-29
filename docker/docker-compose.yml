@@ -6,7 +6,6 @@ services:
       dockerfile: Dockerfile-nginx
     depends_on:
       - api-openlobby
-      - fusionauth
     volumes:
       - ./nginx-start/:/opt/nginx/
       - ./nginx/:/etc/nginx/
