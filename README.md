@@ -1,6 +1,6 @@
-# openlobby
+# OpenDraaideur
 
-openlobby is het JOurnalistiek DAshboard Lokaal.
+Open Draaideur maakt de loopbanen van Tweede Kamerleden inzichtelijk
 
 
 ## Get started
@@ -26,11 +26,11 @@ Then you can go to `http://app.openlobby.nl` preferably in a private window, bec
 
 # deployment
 
-Open Lobby uses Fabric for deployment. Run `fab deploy`.
+Open Draaideur uses Fabric for deployment. Run `fab deploy`.
 
 # migrations
 
-Open Lobby uses [alembic](https://alembic.sqlalchemy.org/en/latest/index.html) for migrations
+Open Draaideur uses [alembic](https://alembic.sqlalchemy.org/en/latest/index.html) for migrations
 
 ## migrate all up to the latest
 
@@ -44,14 +44,7 @@ Open Lobby uses [alembic](https://alembic.sqlalchemy.org/en/latest/index.html) f
 
 `docker exec openlobby_backend_1 alembic revision -m "create account table"`
 
-# adding data
-
-Open Lobby runs several scrapers, in the `openlobby_backend_1` container. Run the floowing steps to get started:
-
-1. `docker exec openlobby_backend_1 ./mana ge.py scrapers locations`
-2. `docker exec openlobby_backend_1 ./mana ge.py scrapers openspending -f 2021-01-01`
-3. `docker exec openlobby_backend_1 ./mana ge.py scrapers poliflw -f 2021-01-01`
-4. `docker exec openlobby_backend_1 ./mana ge.py scrapers obv -f 2021-01-01`
+# importing data
 
 # contact
 
