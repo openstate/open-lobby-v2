@@ -18,6 +18,7 @@ import click
 from click.core import Command
 from click.decorators import _make_command
 from elasticsearch.exceptions import NotFoundError
+from elasticsearch.helpers import bulk
 
 from openlobby.utils import load_config
 from openlobby.es import setup_elasticsearch
@@ -88,9 +89,24 @@ def es_put_template(template_dir):
             es.indices.create(index=index_name)
 
 
+@command('load')
+@click.option('--data_file', default='data/test.json',
+              type=click.File('rb'), help='Path to JSON file containing the data.')
+def es_load(data_file):
+    """
+    Loads data into Elasticsearch. A file needs to be given containing the data.
+    :param data_file: Path to JSON file containing the data. Defaults to ``data/test.json``.
+    """
+    config = load_config()
+    es = setup_elasticsearch(config)
+    data = json.load(data_file)
+    result = bulk(es, data, False)
+
+
 # Register commands explicitly with groups, so we can easily use the docstring
 # wrapper
 elasticsearch.add_command(es_put_template)
+elasticsearch.add_command(es_load)
 
 if __name__ == '__main__':
     cli()
