@@ -1,0 +1,86 @@
+[
+  {
+    "_id": 1,
+    "_index": "openlobby_organizations",
+    "id": 1,
+    "name": "Tweede Kamer",
+    "classifiction": "Tweede Kamer",
+    "description": ""
+  },
+  {
+    "_id": 2,
+    "_index": "openlobby_organizations",
+    "id": 2,
+    "name": "VVD",
+    "classifiction": "Partij",
+    "description": ""
+  },
+  {
+    "_id": 3,
+    "_index": "openlobby_organizations",
+    "id": 3,
+    "name": "CDA",
+    "classifiction": "Partij",
+    "description": ""
+  },
+  {
+    "_id": 4,
+    "_index": "openlobby_organizations",
+    "id": 4,
+    "name": "KLM",
+    "classifiction": "Bedrijf",
+    "description": ""
+  },
+  {
+    "_id": 1,
+    "_index": "openlobby_persons",
+    "id": 1,
+    "name": "Mark Rutte",
+    "description": "",
+    "memberships": [
+      {
+        "organization_id": 1,
+        "start_date": "2017-01-01",
+        "end_date": "2021-03-15",
+        "label": "functie",
+        "role": "Minister-President"
+      },
+      {
+        "organization_id": 2,
+        "start_date": "2017-01-01",
+        "end_date": "2021-03-15",
+        "label": "lid",
+        "role": "Fractievoorzitter"
+      }
+    ]
+  },
+  {
+    "_id": 2,
+    "_index": "openlobby_persons",
+    "id": 2,
+    "name": "Camiel Eurlings",
+    "description": "",
+    "memberships": [
+      {
+        "organization_id": 1,
+        "start_date": "2017-01-01",
+        "end_date": "2021-03-15",
+        "label": "functie",
+        "role": "Kamerlid"
+      },
+      {
+        "organization_id": 3,
+        "start_date": "2017-01-01",
+        "end_date": "2021-03-15",
+        "label": "lid",
+        "role": "Fractielid"
+      },
+      {
+        "organization_id": 4,
+        "start_date": "2021-03-15",
+        "label": "medewerker",
+        "role": "Managing Director"
+      }
+    ]
+  }
+]
