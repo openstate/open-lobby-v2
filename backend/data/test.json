@@ -4,7 +4,7 @@
     "_index": "openlobby_organizations",
     "id": 1,
     "name": "Tweede Kamer",
-    "classifiction": "Tweede Kamer",
+    "classification": "Tweede Kamer",
     "description": ""
   },
   {
@@ -12,7 +12,7 @@
     "_index": "openlobby_organizations",
     "id": 2,
     "name": "VVD",
-    "classifiction": "Partij",
+    "classification": "Partij",
     "description": ""
   },
   {
@@ -20,7 +20,7 @@
     "_index": "openlobby_organizations",
     "id": 3,
     "name": "CDA",
-    "classifiction": "Partij",
+    "classification": "Partij",
     "description": ""
   },
   {
@@ -28,7 +28,7 @@
     "_index": "openlobby_organizations",
     "id": 4,
     "name": "KLM",
-    "classifiction": "Bedrijf",
+    "classification": "Bedrijf",
     "description": ""
   },
   {
