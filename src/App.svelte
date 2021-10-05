@@ -4,6 +4,9 @@
 
 <div class="app-container">
 <Workspace>
+<Menubar>
+  <Logo/>
+</Menubar>
 <h1>OpenDraaideur</h1>
 <p>Test</p>
 </Workspace>
@@ -11,6 +14,7 @@
 
 <script>
 import Workspace from '@soddk/workspace';
+import Menubar, {Logo} from '@soddk/menubar';
 </script>
 
 <style>
