@@ -858,6 +858,12 @@
     "@material/top-app-bar" "^3.2.0"
     "@smui/common" "^1.0.0"
 
+"@soddk/workspace@file:/opt/app/libraries/svelte-oddk/packages/workspace/":
+  version "0.0.1"
+
+"@soddk/workspace@file:libraries/svelte-oddk/packages/workspace":
+  version "0.0.1"
+
 "@sveltejs/svelte-virtual-list@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@sveltejs/svelte-virtual-list/-/svelte-virtual-list-3.0.1.tgz#3784d6426508836b4471bba8ba293430e73717d8"
