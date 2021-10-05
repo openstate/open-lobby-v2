@@ -1,4 +1,5 @@
 import svelte from 'rollup-plugin-svelte';
+import copy from 'rollup-plugin-copy';
 import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -87,6 +88,14 @@ export default {
 		        }]
 		      ]
 		    }),
+
+		copy({
+			targets: [
+				{src: 'static/*', dest: 'public'},
+				{ src: 'node_modules/@soddk/**/images/**/*', dest: 'public/images/oddk' }
+			],
+			verbose: true
+		}),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),

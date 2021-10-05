@@ -879,7 +879,7 @@
     "@material/top-app-bar" "^3.2.0"
     "@smui/common" "^1.0.0"
 
-"@soddk/workspace@file:/opt/app/libraries/svelte-oddk/packages/workspace/":
+"@soddk/menubar@file:/opt/app/libraries/svelte-oddk/packages/menubar/":
   version "0.0.1"
 
 "@soddk/workspace@file:libraries/svelte-oddk/packages/workspace":
