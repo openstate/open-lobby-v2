@@ -879,6 +879,9 @@
     "@material/top-app-bar" "^3.2.0"
     "@smui/common" "^1.0.0"
 
+"@soddk/button@file:libraries/svelte-oddk/packages/button":
+  version "0.0.1"
+
 "@soddk/menubar@file:libraries/svelte-oddk/packages/menubar":
   version "0.0.1"
 

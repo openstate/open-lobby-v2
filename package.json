@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@beyonk/svelte-social-auth": "^2.1.1",
+    "@soddk/button": "file:/opt/app/libraries/svelte-oddk/packages/button/",
     "@soddk/menubar": "file:/opt/app/libraries/svelte-oddk/packages/menubar/",
     "@soddk/workspace": "file:/opt/app/libraries/svelte-oddk/packages/workspace/",
     "sirv-cli": "^1.0.0",
