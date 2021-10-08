@@ -882,6 +882,9 @@
 "@soddk/button@file:libraries/svelte-oddk/packages/button":
   version "0.0.1"
 
+"@soddk/common@file:libraries/svelte-oddk/packages/common":
+  version "0.0.1"
+
 "@soddk/menubar@file:libraries/svelte-oddk/packages/menubar":
   version "0.0.1"
 
