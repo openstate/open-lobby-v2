@@ -28,6 +28,7 @@
     "@soddk/button": "file:/opt/app/libraries/svelte-oddk/packages/button/",
     "@soddk/common": "file:/opt/app/libraries/svelte-oddk/packages/common/",
     "@soddk/menubar": "file:/opt/app/libraries/svelte-oddk/packages/menubar/",
+    "@soddk/tile": "file:/opt/app/libraries/svelte-oddk/packages/tile/",
     "@soddk/workspace": "file:/opt/app/libraries/svelte-oddk/packages/workspace/",
     "sirv-cli": "^1.0.0",
     "svelte-flatpickr": "^3.2.0",

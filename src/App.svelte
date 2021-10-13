@@ -13,14 +13,27 @@
 </Menubar>
 <h1>OpenDraaideur</h1>
 <div>
+<Tile format="short">
+  <Header>
+    <Profile byline="Developer">
+    Breyten Ernsting
+    </Profile>
+  </Header>
+  <Body image="https://via.placeholder.com/250x170">
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+  </Body>
+  <Actions>
+    <a href="#">Deel op Twitter</a>
+    <a href="#">Deel op Facebook</a>
+  </Actions>
+</Tile>
+</div>
+<div>
 <Profile on:click={handleClick}>
 Breyten Ernsting
 </Profile>
 </div>
 <div>
-<Profile byline="Developer">
-Breyten Ernsting
-</Profile>
 </div>
 <p><a href="#" on:click={handleClick}>Testing123</p>
 <div>
@@ -40,6 +53,7 @@ import Workspace from '@soddk/workspace';
 import Menubar, {Logo, MenuItems, MenuItem} from '@soddk/menubar';
 import Button from '@soddk/button';
 import Profile from '@soddk/common';
+import Tile, {Header, Body, Actions} from '@soddk/tile';
 
 function handleClick(e) {
   e.preventDefault();

@@ -888,6 +888,9 @@
 "@soddk/menubar@file:libraries/svelte-oddk/packages/menubar":
   version "0.0.1"
 
+"@soddk/tile@file:libraries/svelte-oddk/packages/tile":
+  version "0.0.1"
+
 "@soddk/workspace@file:/opt/app/libraries/svelte-oddk/packages/workspace/":
   version "0.0.1"
 
