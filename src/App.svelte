@@ -23,8 +23,8 @@
   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
   </Body>
   <Actions>
-    <a href="#">Deel op Twitter</a>
-    <a href="#">Deel op Facebook</a>
+    <Action on:click={handleClick}>Deel op Twitter</Action>
+    <Action on:click={handleClick}>Deel op Facebook</Action>
   </Actions>
 </Tile>
 </div>
@@ -53,7 +53,7 @@ import Workspace from '@soddk/workspace';
 import Menubar, {Logo, MenuItems, MenuItem} from '@soddk/menubar';
 import Button from '@soddk/button';
 import Profile from '@soddk/common';
-import Tile, {Header, Body, Actions} from '@soddk/tile';
+import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
 
 function handleClick(e) {
   e.preventDefault();
