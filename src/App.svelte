@@ -12,21 +12,22 @@
   </MenuItems>
 </Menubar>
 <h1>OpenDraaideur</h1>
-<div>
-<Tile format="short">
-  <Header>
-    <Profile byline="Developer">
-    Breyten Ernsting
-    </Profile>
-  </Header>
-  <Body image="https://via.placeholder.com/250x170">
-  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-  </Body>
-  <Actions>
-    <Action on:click={handleClick}>Deel op Twitter</Action>
-    <Action on:click={handleClick}>Deel op Facebook</Action>
-  </Actions>
-</Tile>
+<div class="tilerow">
+  <Tile format="short">
+    <Header>
+      <Profile byline="Developer">
+      Breyten Ernsting
+      </Profile>
+    </Header>
+    <Body image="https://via.placeholder.com/250x170">
+    <h3>Titel van Artikel</h3>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+    </Body>
+    <Actions>
+      <Action on:click={handleClick}>Deel op Twitter</Action>
+      <Action on:click={handleClick}>Deel op Facebook</Action>
+    </Actions>
+  </Tile>
 </div>
 <div>
 <Profile on:click={handleClick}>

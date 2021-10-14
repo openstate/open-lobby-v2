@@ -108,3 +108,14 @@ h6 {
 	height: 32px;
 	margin: 0 auto;
 }
+
+.tilerow {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 40px;
+}
+
+.oddk-tile {
+	max-width: 250px;
+}
