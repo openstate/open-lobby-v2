@@ -13,6 +13,7 @@ from time import sleep
 import glob
 import csv
 from pprint import pprint
+import re
 
 import translitcodec
 import requests
@@ -53,7 +54,16 @@ def _create_path(path):
 
 
 def extract_organizations(rows):
-    result = {}
+    result = {
+        "tweede-kamer": {
+            "_id": "tweede-kamer",
+            "_index": "openlobby_organizations",
+            "id": "tweede-kamer",
+            "name": "Tweede Kamer",
+            "classification": "Tweede Kamer",
+            "description": "Tweede Kamer der Staten Generaal"
+        }
+    }
     for r in rows:
         org = r['ORGNAAM'].strip()
         org_type = r['ORGTYPE'].strip()
@@ -68,6 +78,56 @@ def extract_organizations(rows):
             "classification": r['ORGTYPE'],
             "description": r['ORGTYPE']
         }
+    return result
+
+
+def extract_persons(rows):
+    result = {}
+    for r in rows:
+        per = r['PERSOON'].strip()
+        if (per == ''):
+            continue
+
+        per_slug = slugify(per)
+        org = r['PARTIJ'].strip()
+        org_slug = slugify(org)
+        org = r['ORGNAAM'].strip()
+        org_type = r['ORGTYPE'].strip()
+        org_slug = slugify(org)
+
+        year = ''
+        matches = re.search('(\d{4})$', r['BEGINANDERS'])
+        if matches:
+            year = matches.group(1)
+
+        membership = {
+            "organization_id": org_slug,
+            "role": r['VOLGENDEFUNCTIE']
+        }
+        if year != '':
+            membership["start_date"] = '%s-01-01' % (year)
+
+        if per_slug not in result:
+            chamber_membership = {
+                "organization_id": "tweede-kamer",
+                "label": "functie",
+                "role": 'Kamerlid'
+            }
+            begin_lid = r['BEGINLID'].strip()
+            if begin_lid != '':
+                chamber_membership["start_date"] = "%s-01-01" % (
+                    begin_lid)
+            result[per_slug] = {
+                "_id": per_slug,
+                "_index": "openlobby_persons",
+                "id": per_slug,
+                "name": per,
+                "description": r['NEVENFUNCTIES'].strip(),
+                "memberships": [chamber_membership]
+            }
+        if org != '':
+            result[per_slug]["memberships"].append(membership)
+
     return result
 
 
@@ -158,7 +218,16 @@ def es_load_csv(data_file):
     orgs = extract_organizations(rows)
     #pprint(orgs)
     parties = extract_parties(rows)
-    pprint(parties)
+    #pprint(parties)
+    persons = extract_persons(rows)
+    #pprint(persons)
+    # pprint(persons["mark-rutte"])
+    # pprint(persons["martijn-bolkestein"])
+    # print(orgs["tweede-kamer"])
+    config = load_config()
+    es = setup_elasticsearch(config)
+    data = list(orgs.values()) + list(parties.values()) + list(persons.values())
+    result = bulk(es, data, False)
 
 # Register commands explicitly with groups, so we can easily use the docstring
 # wrapper
