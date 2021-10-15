@@ -14,6 +14,7 @@ import glob
 import csv
 from pprint import pprint
 
+import translitcodec
 import requests
 import click
 from click.core import Command
@@ -21,7 +22,7 @@ from click.decorators import _make_command
 from elasticsearch.exceptions import NotFoundError
 from elasticsearch.helpers import bulk
 
-from openlobby.utils import load_config
+from openlobby.utils import load_config, slugify
 from openlobby.es import setup_elasticsearch
 
 logging.basicConfig(
@@ -49,6 +50,43 @@ def _create_path(path):
         os.makedirs(path)
 
     return path
+
+
+def extract_organizations(rows):
+    result = {}
+    for r in rows:
+        org = r['ORGNAAM'].strip()
+        org_type = r['ORGTYPE'].strip()
+        org_slug = slugify(org)
+        if (org == '') or (org_slug in result):
+            continue
+        result[org_slug] = {
+            "_id": org_slug,
+            "_index": "openlobby_organizations",
+            "id": org_slug,
+            "name": org,
+            "classification": r['ORGTYPE'],
+            "description": r['ORGTYPE']
+        }
+    return result
+
+
+def extract_parties(rows):
+    result = {}
+    for r in rows:
+        org = r['PARTIJ'].strip()
+        org_slug = slugify(org)
+        if (org == '') or (org_slug in result):
+            continue
+        result[org_slug] = {
+            "_id": org_slug,
+            "_index": "openlobby_organizations",
+            "id": org_slug,
+            "name": org,
+            "classification": "Politieke partij",
+            "description": ""
+        }
+    return result
 
 
 @click.group()
@@ -113,8 +151,14 @@ def es_load_csv(data_file):
     :param data_file: Path to JSON file containing the data. Defaults to ``data/test.json``.
     """
     reader = csv.DictReader(data_file)
+    rows = []
     for row in reader:
+        rows.append(row)
         pprint(row)
+    orgs = extract_organizations(rows)
+    #pprint(orgs)
+    parties = extract_parties(rows)
+    pprint(parties)
 
 # Register commands explicitly with groups, so we can easily use the docstring
 # wrapper

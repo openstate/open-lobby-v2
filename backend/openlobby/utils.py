@@ -5,6 +5,7 @@ except ImportError:
     from yaml import Loader
 
 import re
+import codecs
 
 from openlobby.exceptions import ConfigurationError
 
@@ -34,3 +35,14 @@ def is_valid_config(config):
         len(config.keys()) == 1 and
         ('openlobby' in config)
     )
+
+_punct_re = re.compile(r'[\t\r\n !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
+
+def slugify(text, delim='-'):
+    """Generates an ASCII-only slug."""
+    result = []
+    for word in _punct_re.split(str(text).lower()):
+        word = codecs.encode(word, 'translit/long')
+        if word:
+            result.append(word)
+    return delim.join(result)
