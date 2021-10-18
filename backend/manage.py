@@ -118,9 +118,22 @@ def extract_persons(rows, orgs, parties):
                 "role": 'Kamerlid'
             }
             begin_lid = r['BEGINLID'].strip()
-            if begin_lid != '':
+            begin_year = ''
+            end_year = ''
+            matches = re.search('(\d{4})\-(\d{4})$', begin_lid)
+            if matches:
+                begin_year = matches.group(1)
+                end_year = matches.group(2)
+            else:
+                matches = re.search('(\d{4})$', begin_lid)
+                if matches:
+                    begin_year = matches.group(1)
+            if begin_year != '':
                 chamber_membership["start_date"] = "%s-01-01" % (
-                    begin_lid)
+                    begin_year)
+            if end_year != '':
+                chamber_membership["end_date"] = "%s-01-01" % (
+                    end_year)
             result[per_slug] = {
                 "_id": per_slug,
                 "_index": "openlobby_persons",
@@ -229,6 +242,7 @@ def es_load_csv(data_file):
     pprint(persons["arno-rutte"])
     pprint(orgs['vintura'])
     pprint(persons["wybren-van-haga"])
+    pprint(persons["elbert-dijkgraaf"])
     # pprint(persons["martijn-bolkestein"])
     # print(orgs["tweede-kamer"])
     config = load_config()
