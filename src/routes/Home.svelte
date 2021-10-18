@@ -8,7 +8,7 @@
   <Logo/>
   <MenuItems>
   <MenuItem href="/data">Data</MenuItem>
-    <MenuItem href="/over">Over</MenuItem>
+    <MenuItem href="#/over">Over</MenuItem>
   </MenuItems>
 </Menubar>
 <h1>OpenDraaideur</h1>
