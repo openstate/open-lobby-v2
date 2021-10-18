@@ -1,4 +1,9 @@
-<h1>OpenDraaideur</h1>
+<div class="odd-home">
+  <form class="odd-search-form">
+    <input type="text" name="query" placeholder="Rutte, SP, KLM...">
+    <input type="submit" value="Zoeken" class="oddk-button oddk-button-raised">
+  </form>
+</div>
 <div class="tilerow">
   <Tile format="short">
     <Header>
