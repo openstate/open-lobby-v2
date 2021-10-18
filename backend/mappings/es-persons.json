@@ -75,7 +75,7 @@
                 "start_date": {
                   "type": "date"
                 },
-                "start_date": {
+                "end_date": {
                   "type": "date"
                 },
                 "label": {
