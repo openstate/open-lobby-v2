@@ -1,16 +1,3 @@
-<svelte:head>
-  <title>Open Lobby</title>
-</svelte:head>
-
-<div class="app-container">
-<Workspace>
-<Menubar>
-  <Logo/>
-  <MenuItems>
-  <MenuItem href="/data">Data</MenuItem>
-    <MenuItem href="#/over">Over</MenuItem>
-  </MenuItems>
-</Menubar>
 <h1>OpenDraaideur</h1>
 <div class="tilerow">
   <Tile format="short">
@@ -67,12 +54,9 @@ Breyten Ernsting
 <div>
 <Button variant="raised" on:click={handleClick}>Zoeken</Button>
 </div>
-</Workspace>
-</div>
+
 <script>
 import {link} from 'svelte-spa-router';
-import Workspace from '@soddk/workspace';
-import Menubar, {Logo, MenuItems, MenuItem} from '@soddk/menubar';
 import Button from '@soddk/button';
 import Profile from '@soddk/common';
 import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
