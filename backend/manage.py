@@ -83,13 +83,16 @@ def extract_organizations(rows):
 
 def extract_persons(rows):
     result = {}
+    last_row = None
     for r in rows:
         per = r['PERSOON'].strip()
-        if (per == ''):
-            continue
-
-        per_slug = slugify(per)
         org = r['PARTIJ'].strip()
+        if (per != '') and (org != ''):
+            last_row = r
+        if (per == '') and (org == '') and (last_row is not None):
+            per = last_row['PERSOON'].strip()
+            org = last_row['PARTIJ'].strip()
+        per_slug = slugify(per)
         org_slug = slugify(org)
         org = r['ORGNAAM'].strip()
         org_type = r['ORGTYPE'].strip()
@@ -221,7 +224,8 @@ def es_load_csv(data_file):
     #pprint(parties)
     persons = extract_persons(rows)
     #pprint(persons)
-    # pprint(persons["mark-rutte"])
+    pprint(persons["arno-rutte"])
+    pprint(orgs['vintura'])
     # pprint(persons["martijn-bolkestein"])
     # print(orgs["tweede-kamer"])
     config = load_config()
