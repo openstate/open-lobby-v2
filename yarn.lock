@@ -3339,6 +3339,11 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
+regexparam@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/regexparam/-/regexparam-2.0.0.tgz#059476767d5f5f87f735fc7922d133fd1a118c8c"
+  integrity sha512-gJKwd2MVPWHAIFLsaYDZfyKzHNS4o7E/v8YmNf44vmeV2e4YfVoDToTOKTvE7ab68cRJ++kLuEXJBaEeJVt5ow==
+
 repeating@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/repeating/-/repeating-2.0.1.tgz#5214c53a926d3552707527fbab415dbc08d06dda"
@@ -3899,6 +3904,13 @@ svelte-select@^3.16.1:
   version "3.16.1"
   resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-3.16.1.tgz#5234810c6b71d57349f3bfcf09dfa7947216cea2"
   integrity sha512-y2E1LA50hbOlolaBS0TsWWcWXFIp9TIeCmohMg51pZuJF5ngkPajoKmRjE893P2jIRZDV//qf1gMb6KjrEYIGQ==
+
+svelte-spa-router@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/svelte-spa-router/-/svelte-spa-router-3.2.0.tgz#fae3311d292451236cb57131262406cf312b15ee"
+  integrity sha512-igemo5Vs82TGBBw+DjWt6qKameXYzNs6aDXcTxou5XbEvOjiRcAM6MLkdVRCatn6u8r42dE99bt/br7T4qe/AQ==
+  dependencies:
+    regexparam "2.0.0"
 
 svelte@^3.0, svelte@^3.0.0:
   version "3.31.2"
