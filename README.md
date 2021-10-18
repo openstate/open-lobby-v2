@@ -19,10 +19,10 @@ the development environment.
 To access the local development environment, add the following in `/etc/hosts`:
 
 ```
-127.0.0.1	api.openlobby.nl users.openlobby.nl www.openlobby.nl app.openlobby.nl
+127.0.0.1	api.opendraaideur.nl users.opendraaideur.nl www.opendraaideur.nl app.opendraaideur.nl
 ```
 
-Then you can go to `http://app.openlobby.nl` preferably in a private window, because of HSTS parameters on the live setup.
+Then you can go to `http://app.opendraaideur.nl` preferably in a private window, because of HSTS parameters on the live setup.
 
 # deployment
 

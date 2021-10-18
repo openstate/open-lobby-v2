@@ -13,7 +13,7 @@ class Config(object):
     SECRET_KEY = 'DitIsOpenLobby'
     NAME_OF_APP = 'openlobby'
     # where the openlobby instance lives
-    WWW_URL = 'http://www.openlobby.nl/'
+    WWW_URL = 'http://www.opendraaideur.nl/'
 #    SERVER_NAME = 'waarismijnstemlokaal.nl'
 #    PREFERRED_URL_SCHEME = 'https'
 #    FORCE_HOST_FOR_REDIRECTS = 'waarismijnstemlokaal.nl'
