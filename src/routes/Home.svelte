@@ -1,7 +1,7 @@
 <div class="odd-home">
   <form class="odd-search-form">
-    <input type="text" name="query" placeholder="Rutte, SP, KLM...">
-    <input type="submit" value="Zoeken" class="oddk-button oddk-button-raised">
+    <input type="text" name="query" placeholder="Rutte, SP, KLM..." bind:value={query} on:change={handleSearch}>
+    <input type="submit" value="Zoeken" class="oddk-button oddk-button-raised" on:click={handleSearch}>
   </form>
 </div>
 <div class="tilerow">
@@ -66,11 +66,20 @@ import Button from '@soddk/button';
 import Profile from '@soddk/common';
 import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
 
+let query;
+
 function handleClick(e) {
   e.preventDefault();
 		alert('Button Clicked');
     return false;
 	}
+
+
+function handleSearch(e) {
+  e.preventDefault();
+  alert('Should go and search for "' + query + '" now!');
+  return false;
+}
 </script>
 
 <style>
