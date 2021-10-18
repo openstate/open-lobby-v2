@@ -68,6 +68,10 @@
                 "organization_id": {
                   "type": "keyword"
                 },
+                "organization": {
+                 "type": "object",
+                 "enabled": false
+               },
                 "start_date": {
                   "type": "date"
                 },

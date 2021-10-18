@@ -81,7 +81,7 @@ def extract_organizations(rows):
     return result
 
 
-def extract_persons(rows):
+def extract_persons(rows, orgs, parties):
     result = {}
     last_row = None
     for r in rows:
@@ -113,6 +113,7 @@ def extract_persons(rows):
         if per_slug not in result:
             chamber_membership = {
                 "organization_id": "tweede-kamer",
+                "organization": orgs['tweede-kamer'],
                 "label": "functie",
                 "role": 'Kamerlid'
             }
@@ -129,6 +130,7 @@ def extract_persons(rows):
                 "memberships": [chamber_membership]
             }
         if org != '':
+            membership["organization"] = orgs[org_slug]
             result[per_slug]["memberships"].append(membership)
 
     return result
@@ -222,10 +224,11 @@ def es_load_csv(data_file):
     #pprint(orgs)
     parties = extract_parties(rows)
     #pprint(parties)
-    persons = extract_persons(rows)
+    persons = extract_persons(rows, orgs, parties)
     #pprint(persons)
     pprint(persons["arno-rutte"])
     pprint(orgs['vintura'])
+    pprint(persons["wybren-van-haga"])
     # pprint(persons["martijn-bolkestein"])
     # print(orgs["tweede-kamer"])
     config = load_config()
