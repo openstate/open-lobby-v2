@@ -111,6 +111,14 @@ def extract_persons(rows, orgs, parties):
             membership["start_date"] = '%s-01-01' % (year)
 
         if per_slug not in result:
+            par = r['PARTIJ'].strip()
+            par_slug = slugify(par)
+            party_membership = {
+                "organization_id": par_slug,
+                "organization": parties[par_slug],
+                "label": "lid",
+                "role": "Lid"
+            }
             chamber_membership = {
                 "organization_id": "tweede-kamer",
                 "organization": orgs['tweede-kamer'],
@@ -140,7 +148,7 @@ def extract_persons(rows, orgs, parties):
                 "id": per_slug,
                 "name": per,
                 "description": r['NEVENFUNCTIES'].strip(),
-                "memberships": [chamber_membership]
+                "memberships": [party_membership, chamber_membership]
             }
         if org != '':
             membership["organization"] = orgs[org_slug]
