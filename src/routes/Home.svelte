@@ -65,7 +65,7 @@ import {link, push} from 'svelte-spa-router';
 import Button from '@soddk/button';
 import Profile from '@soddk/common';
 import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
-
+import { search_request } from '../sources.js';
 let query;
 
 function handleClick(e) {

@@ -12,6 +12,7 @@ import Organization from './routes/Organization.svelte';
 import Search from './routes/Search.svelte';
 import NotFound from './routes/NotFound.svelte';
 
+import { routeLoading, routeLoaded } from './routes_utils.js';
 // import Author from './routes/Author.svelte'
 // import Book from './routes/Book.svelte'
 // import NotFound from './routes/NotFound.svelte'
@@ -41,7 +42,7 @@ const routes = {
       </Menubar>
 
       <div class="contents">
-        <Router {routes}/>
+        <Router {routes} on:routeLoading={routeLoading} on:routeLoaded={routeLoaded} />
       </div>
     </Workspace>
   </div>
