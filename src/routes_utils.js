@@ -1,5 +1,7 @@
 import { search_request } from './sources.js';
 
+import { perform_search } from './routes/Search.svelte';
+
 export function routeLoading(event) {
     console.log('routeLoading event')
     console.log('Route', event.detail.route)
@@ -21,6 +23,6 @@ export function routeLoaded(event) {
     console.log('Name', event.detail.name)
 
     if (event.detail.name == 'Search') {
-        search_request(event.detail.params.query);
+        perform_search(event.detail.params.query);
     }
 }
