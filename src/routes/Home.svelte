@@ -61,7 +61,7 @@ Breyten Ernsting
 </div>
 
 <script>
-import {link} from 'svelte-spa-router';
+import {link, push} from 'svelte-spa-router';
 import Button from '@soddk/button';
 import Profile from '@soddk/common';
 import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
@@ -77,7 +77,8 @@ function handleClick(e) {
 
 function handleSearch(e) {
   e.preventDefault();
-  alert('Should go and search for "' + query + '" now!');
+  //alert('Should go and search for "' + query + '" now!');
+  push('/zoeken/' + encodeURIComponent(query));
   return false;
 }
 </script>

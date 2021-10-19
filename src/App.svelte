@@ -7,22 +7,22 @@ import Menubar, {Logo, MenuItems, MenuItem} from '@soddk/menubar';
 
 import Home from './routes/Home.svelte';
 import About from './routes/About.svelte';
+import Person from './routes/Person.svelte';
+import Organization from './routes/Organization.svelte';
+import Search from './routes/Search.svelte';
+import NotFound from './routes/NotFound.svelte';
+
 // import Author from './routes/Author.svelte'
 // import Book from './routes/Book.svelte'
 // import NotFound from './routes/NotFound.svelte'
 const routes = {
     // Exact path
     '/': Home,
-    '/over': About
-    // Using named parameters, with last being optional
-    //'/author/:first/:last?': Author,
-
-    // Wildcard parameter
-    //'/book/*': Book,
-
-    // Catch-all
-    // This is optional, but if present it must be the last
-    //'*': NotFound,
+    '/over': About,
+    '/zoeken/:query': Search,
+    '/p/:slug': Person,
+    '/o/:slug': Organization,
+    '*': NotFound,
 }
 </script>
 <svelte:head>
