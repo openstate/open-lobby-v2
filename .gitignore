@@ -6,3 +6,4 @@ backend/config.yaml
 backend/config.py
 backend/cache/**/*.json
 __pycache__
+yarn-error.log
