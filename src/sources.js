@@ -1,5 +1,5 @@
 import { get } from 'svelte/store';
-import { results } from './stores.js';
+import { results, total_results } from './stores.js';
 
 function api_request(params, index) {
   var url = window.location.protocol + '//api.opendraaideur.nl';
@@ -15,6 +15,7 @@ function api_request(params, index) {
         console.log('got data:');
         console.dir(data);
         results.set(data.hits.hits);
+        total_results.set(data.hits.total || 0);
       });
 }
 
