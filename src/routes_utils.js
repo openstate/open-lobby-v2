@@ -1,6 +1,8 @@
 import { search_request } from './sources.js';
 
 import { perform_search } from './routes/Search.svelte';
+import { perform_find_person } from './routes/Person.svelte';
+import { perform_find_organization } from './routes/Organization.svelte';
 
 export function routeLoading(event) {
     console.log('routeLoading event')
@@ -24,5 +26,11 @@ export function routeLoaded(event) {
 
     if (event.detail.name == 'Search') {
         perform_search(event.detail.params.query);
+    }
+    if (event.detail.name == 'Person') {
+      perform_find_person(event.detail.params.slug);
+    }
+    if (event.detail.name == 'Organization') {
+      perform_find_organization(event.detail.params.slug);
     }
 }
