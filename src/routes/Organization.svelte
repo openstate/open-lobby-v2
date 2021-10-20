@@ -1,5 +1,5 @@
-<h1>About</h1>
-<p>This is the about page.</p>
+<h1>Organization</h1>
+<p>This is the organization page.</p>
 <script>
 import {link, push} from 'svelte-spa-router';
 import Button from '@soddk/button';
