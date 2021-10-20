@@ -21,6 +21,7 @@
   </div>
 
   {#each r._source.memberships as m}
+    <div class="odd-bar"> </div>
     <div class="odd-search-result">
     <Tile format="short" on:click={(e) => handleClick(e, r)}>
       <Header>
