@@ -4,7 +4,7 @@ import { results, total_results } from './stores.js';
 function api_request(params, index) {
   var url = window.location.protocol + '//api.opendraaideur.nl';
   if (typeof(index) !== 'undefined') {
-    url += index;
+    url += '/' + index;
   }
   url += '/search?' + new URLSearchParams(params).toString();
   return fetch(
@@ -29,24 +29,24 @@ export function search_request(query) {
 
 export function find_person(per_slug) {
   // http://api.opendraaideur.nl/persons/search?filter=id.keyword:mark-rutte
-  return api_request('persons', {
+  return api_request({
     filter: "id.keyword:" + per_slug,
     limit: 1000
-  });
+  }, 'persons');
 }
 
 export function find_organization(org_slug) {
   // http://api.opendraaideur.nl/organizations/search?filter=id.keyword:vvd
-  return api_request('organizations', {
+  return api_request({
     filter: "id.keyword:" + per_slug,
     limit: 1000
-  });
+  }, 'organizations');
 }
 
 export function find_organization_with_members(org_slug) {
   //  http://api.opendraaideur.nl/persons/search?filter=memberships.organization.id.keyword:vvd
-  return api_request('persons', {
+  return api_request({
     filter: "memberships.organization.id.keyword:" + org_slug,
     limit: 1000
-  });
+  }, 'persons');
 }
