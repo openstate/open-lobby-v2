@@ -166,3 +166,15 @@ h6 {
 	height: 100px;
 	width: 0;
 }
+
+.odd-year {
+	margin: 20px auto;
+	text-align: center;
+	/*font: normal normal bold 34px/46px Avenir Next;*/
+	font-size: 34px;
+	line-height: 46px;
+	font-weight: bold;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}

@@ -21,6 +21,14 @@
   </div>
 
   {#each r._source.memberships as m}
+    {#if m.start_date}
+      <div class="odd-bar"> </div>
+      {#if m.start_date.endsWith('-01-01')}
+      <div class="odd-year">{m.start_date.slice(0,4)}</div>
+      {:else}
+      <div class="odd-year">{m.start_date}</div>
+      {/if}
+    {/if}
     <div class="odd-bar"> </div>
     <div class="odd-search-result">
     <Tile format="short" on:click={(e) => handleClick(e, r)}>
