@@ -151,3 +151,11 @@ h6 {
 .odd-search-form input[type="submit"] {
 	border: 0px none;
 }
+
+.odd-search-result {
+	margin: 20px auto;
+}
+
+.odd-search-result .oddk-tile {
+	margin: 0 auto;
+}
