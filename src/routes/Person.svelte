@@ -1,24 +1,47 @@
 {#each $results as r}
-<div class="odd-search-result">
-<Tile format="short" on:click={(e) => handleClick(e, r)}>
-  <Header>
-    <Profile>
-    { r._source.name }
-    </Profile>
-  </Header>
-  <Body>
-  <!--
-  <Body image="https://via.placeholder.com/250x170">
-  <h3>Titel van Artikel</h3> -->
-  { r._source.description }
-  </Body>
-  <!--
-  <Actions>
-    <Action on:click={handleClick}>Deel op Twitter</Action>
-    <Action on:click={handleClick}>Deel op Facebook</Action>
-  </Actions> -->
-</Tile>
-</div>
+  <div class="odd-search-result">
+  <Tile format="short" on:click={(e) => handleClick(e, r)}>
+    <Header>
+      <Profile>
+      { r._source.name }
+      </Profile>
+    </Header>
+    <Body>
+    <!--
+    <Body image="https://via.placeholder.com/250x170">
+    <h3>Titel van Artikel</h3> -->
+    { r._source.description }
+    </Body>
+    <!--
+    <Actions>
+      <Action on:click={handleClick}>Deel op Twitter</Action>
+      <Action on:click={handleClick}>Deel op Facebook</Action>
+    </Actions> -->
+  </Tile>
+  </div>
+
+  {#each r._source.memberships as m}
+    <div class="odd-search-result">
+    <Tile format="short" on:click={(e) => handleClick(e, r)}>
+      <Header>
+        <Profile byline="{m.organization.classification}">
+        { m .organization.name }
+        </Profile>
+      </Header>
+      <Body>
+      <!--
+      <Body image="https://via.placeholder.com/250x170">
+      <h3>Titel van Artikel</h3> -->
+      </Body>
+      <!--
+      <Actions>
+        <Action on:click={handleClick}>Deel op Twitter</Action>
+        <Action on:click={handleClick}>Deel op Facebook</Action>
+      </Actions> -->
+    </Tile>
+    </div>
+  {/each}
+
 {/each}
 
 <script>
