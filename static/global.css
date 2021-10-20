@@ -158,6 +158,7 @@ h6 {
 
 .odd-search-result .oddk-tile {
 	margin: 0 auto;
+	height: 100%;
 }
 
 .odd-bar {
@@ -184,4 +185,8 @@ h6 {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+}
+
+.tilerow-grid .odd-search-result {
+	margin: 40px 10px;
 }
