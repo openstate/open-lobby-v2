@@ -14,13 +14,14 @@ function api_request(params, index) {
       function (data) {
         console.log('got data:');
         console.dir(data);
-        if (data.hits.total > 0) {
+        if (data.hits.total.value > 0) {
+          console.log('Setting main object to:', data.hits.hits[0]);
           main_obj.set(data.hits.hits[0]);
         } else {
           main_obj.set(null);
         }
         results.set(data.hits.hits);
-        total_results.set(data.hits.total || 0);
+        total_results.set(data.hits.total.value || 0);
       });
 }
 
