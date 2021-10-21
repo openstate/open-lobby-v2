@@ -1,4 +1,4 @@
-<Searchbar query={query} />
+<Searchbar query={params.query} />
 <p style="text-align: center;">Zoeken naar &quot;{params.query}&quot; leverde {$total_results} resultaten op.</p>
 
 {#each $results as r}
