@@ -1,5 +1,5 @@
 {#if $main_obj}
-  {#if $main_obj.memberships}
+  {#if $main_obj._source.memberships}
     {#each $main_obj._source.memberships as m}
       {#if m.organization_id == params.slug}
         <div class="odd-search-result">
