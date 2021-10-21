@@ -5,8 +5,8 @@
         <div class="odd-search-result">
         <Tile format="short" on:click={(e) => handleClick(e, main_obj)}>
           <Header>
-            <Profile byline={m.organization.classification}>
-            { m .organization.name }
+            <Profile byline={m.organization.classification} type="business">
+            { m.organization.name }
             </Profile>
           </Header>
           <Body>
