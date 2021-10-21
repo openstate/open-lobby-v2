@@ -52,9 +52,6 @@ def deploy(c):
     c.sudo('docker exec %s yarn' % (NODE_CONTAINER))
     c.sudo('docker exec %s yarn build' % (NODE_CONTAINER))
 
-    # Upgrade database
-    c.sudo('docker exec %s alembic upgrade head' % (APP_CONTAINER))
-
     # put elasticsearch mapings
     c.sudo('docker exec %s python manage.py elasticsearch put_templates' % (APP_CONTAINER))
     # Reload app

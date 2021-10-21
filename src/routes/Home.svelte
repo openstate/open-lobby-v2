@@ -1,4 +1,4 @@
-<h1 class="odd-header">OpenDraaideur</h1>
+<h1 class="odd-header">Open Draaideur</h1>
 
 <div class="odd-home">
   <form class="odd-search-form">

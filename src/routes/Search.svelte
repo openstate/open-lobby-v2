@@ -35,22 +35,12 @@ import Button from '@soddk/button';
 import Profile from '@soddk/common';
 import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
 
-import { is_person, is_organization } from '../utils.js';
+import { is_person, is_organization, handleClick } from '../utils.js';
 import { results, total_results } from '../stores.js';
 import { search_request } from '../sources.js';
 // You need to define the component prop "params"
 export let params = {};
 
-function handleClick(e, r) {
-  e.preventDefault();
-		console.log('Button Clicked for ', r._source.id);
-    if (is_person(r)) {
-      push('/p/' + r._source.id);
-    } else if (is_organization(r)) {
-      push('/o/' + r._source.id);
-    }
-    return false;
-	}
 </script>
 
 <script context="module">

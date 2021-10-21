@@ -20,6 +20,7 @@
   </Tile>
   </div>
 
+  {#if r._source.memberships}
   {#each r._source.memberships as m}
     {#if m.start_date}
       <div class="odd-bar"> </div>
@@ -50,7 +51,7 @@
     </Tile>
     </div>
   {/each}
-
+  {/if}
 {/each}
 
 <script>
@@ -70,7 +71,7 @@ export let params = {};
 
 <script context="module">
 export function perform_find_person(per_slug) {
-  console.log('executing search from module export');
+  console.log('executing person search from module export');
   find_person(per_slug);
 }
 </script>

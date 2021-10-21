@@ -69,7 +69,7 @@ let first_org;
 
 <script context="module">
 export function perform_find_organization(org_slug) {
-  console.log('executing search from module export');
+  console.log('executing organization search from module export');
   find_organization_with_members(org_slug);
 }
 </script>
