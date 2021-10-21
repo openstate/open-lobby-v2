@@ -1,13 +1,18 @@
-<h1>Search</h1>
-<p>Zoeken naar &quot;{params.query}&quot;</p>
+<p style="text-align: center;">Zoeken naar &quot;{params.query}&quot; leverde {$total_results} resultaten op.</p>
 
 {#each $results as r}
 <div class="odd-search-result">
 <Tile format="short" on:click={(e) => handleClick(e, r)}>
   <Header>
-    <Profile>
+    {#if is_person(r)}
+    <Profile type="person">
     { r._source.name }
     </Profile>
+    {:else}
+    <Profile type="business">
+    { r._source.name }
+    </Profile>
+    {/if}
   </Header>
   <Body>
   <!--
@@ -31,7 +36,7 @@ import Profile from '@soddk/common';
 import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
 
 import { is_person, is_organization } from '../utils.js';
-import { results } from '../stores.js';
+import { results, total_results } from '../stores.js';
 import { search_request } from '../sources.js';
 // You need to define the component prop "params"
 export let params = {};

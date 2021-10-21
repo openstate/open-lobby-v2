@@ -154,6 +154,7 @@ h6 {
 
 .odd-search-result {
 	margin: 20px auto;
+	cursor: pointer;
 }
 
 .odd-search-result .oddk-tile {
@@ -189,4 +190,10 @@ h6 {
 
 .tilerow-grid .odd-search-result {
 	margin: 40px 10px;
+}
+
+.odd-header {
+	font-size: 34px;
+	line-height: 46px;
+	text-align: center;
 }
