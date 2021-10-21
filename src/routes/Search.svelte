@@ -1,3 +1,4 @@
+<Searchbar query={query} />
 <p style="text-align: center;">Zoeken naar &quot;{params.query}&quot; leverde {$total_results} resultaten op.</p>
 
 {#each $results as r}
@@ -34,6 +35,8 @@ import Button from '@soddk/button';
 import Profile from '@soddk/common';
 import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
 
+import Searchbar from './Searchbar.svelte';
+
 import { is_person, is_organization, handleClick } from '../utils.js';
 import { results, total_results } from '../stores.js';
 import { search_request } from '../sources.js';
@@ -43,8 +46,10 @@ export let params = {};
 </script>
 
 <script context="module">
-export function perform_search(query) {
+export let query;
+export function perform_search(squery) {
   console.log('executing search from module export');
-  search_request(query);
+  search_request(squery);
+  query = squery;
 }
 </script>
