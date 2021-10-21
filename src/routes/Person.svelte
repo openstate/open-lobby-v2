@@ -61,14 +61,11 @@ import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
 
 import { results } from '../stores.js';
 import { find_person } from '../sources.js';
+import { handleClick } from '../utils.js';
+
 // You need to define the component prop "params"
 export let params = {};
 
-function handleClick(e, r) {
-  e.preventDefault();
-		console.log('Button Clicked for ', r._source.id);
-    return false;
-	}
 </script>
 
 <script context="module">
