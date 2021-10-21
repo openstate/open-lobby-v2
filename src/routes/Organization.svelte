@@ -1,27 +1,29 @@
 {#if $main_obj}
-  {#each $main_obj._source.memberships as m}
-    {#if m.organization_id == params.slug}
-      <div class="odd-search-result">
-      <Tile format="short" on:click={(e) => handleClick(e, main_obj)}>
-        <Header>
-          <Profile byline={m.organization.classification}>
-          { m .organization.name }
-          </Profile>
-        </Header>
-        <Body>
-        <!--
-        <Body image="https://via.placeholder.com/250x170">
-        <h3>Titel van Artikel</h3> -->
-        </Body>
-        <!--
-        <Actions>
-          <Action on:click={handleClick}>Deel op Twitter</Action>
-          <Action on:click={handleClick}>Deel op Facebook</Action>
-        </Actions> -->
-      </Tile>
-      </div>
-    {/if}
-  {/each}
+  {#if $main_obj.memberships}
+    {#each $main_obj._source.memberships as m}
+      {#if m.organization_id == params.slug}
+        <div class="odd-search-result">
+        <Tile format="short" on:click={(e) => handleClick(e, main_obj)}>
+          <Header>
+            <Profile byline={m.organization.classification}>
+            { m .organization.name }
+            </Profile>
+          </Header>
+          <Body>
+          <!--
+          <Body image="https://via.placeholder.com/250x170">
+          <h3>Titel van Artikel</h3> -->
+          </Body>
+          <!--
+          <Actions>
+            <Action on:click={handleClick}>Deel op Twitter</Action>
+            <Action on:click={handleClick}>Deel op Facebook</Action>
+          </Actions> -->
+        </Tile>
+        </div>
+      {/if}
+    {/each}
+  {/if}
 {/if}
 
 <div class="tilerow-grid">
@@ -64,6 +66,13 @@ import { handleClick } from '../utils.js';
 // You need to define the component prop "params"
 export let params = {};
 let first_org;
+
+var groupBy = function(xs, key) {
+  return xs.reduce(function(rv, x) {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
+  }, {});
+};
 
 </script>
 
