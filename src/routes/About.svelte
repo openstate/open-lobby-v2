@@ -1,3 +1,5 @@
+<h1 class="odd-header">Over</h1>
+
 <div class="odd-explanation">
 <p>Het onderzoek is uitgevoerd door de <a href="http://openstate.eu" target="_blank">Open State Foundation</a> in samenwerking met de Volkskrant. Door de Nederlandse politieke draaideur inzichtelijk te maken willen we transparantie rondom lobbyen bevorderen en een open overheid stimuleren. Het onderzoek heeft geresulteerd in een publicatie in de Volkskrant op 22 oktober en 23 oktober als onderzoekspublicatie in de zaterdagkrant. Voor dit onderzoek verspreidde de Volkskrant een enquête onder oud-politici om achtergrondinformatie te verzamelen over betreffende overstappen na hun kamerlidmaatschap. Open State Foundation verzamelde de kwantitatieve data die inzichtelijk zijn gemaakt via de tool “Open Draaideur”, waarmee kan iedereen zelf kan zoeken naar oud-politici en hun functies om hiermee de politieke draaideur transparant te maken.
 
