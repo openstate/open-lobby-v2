@@ -18,7 +18,6 @@
   <!--
   <Body image="https://via.placeholder.com/250x170">
   <h3>Titel van Artikel</h3> -->
-  { r._source.description }
   </Body>
   <!--
   <Actions>

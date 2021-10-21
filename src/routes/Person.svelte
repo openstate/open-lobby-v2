@@ -10,7 +10,6 @@
     <!--
     <Body image="https://via.placeholder.com/250x170">
     <h3>Titel van Artikel</h3> -->
-    { r._source.description }
     </Body>
     <!--
     <Actions>
@@ -51,6 +50,21 @@
     </Tile>
     </div>
   {/each}
+  {/if}
+
+  {#if r._source.description}
+  <div class="odd-year">Nevenfuncties</div>
+
+  <div class="odd-search-result">
+  <Tile format="short">
+    <Body>
+    <!--
+    <Body image="https://via.placeholder.com/250x170">
+    <h3>Titel van Artikel</h3> -->
+    { r._source.description }
+    </Body>
+  </Tile>
+  </div>
   {/if}
 {/each}
 
