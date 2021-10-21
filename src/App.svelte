@@ -36,7 +36,7 @@ const routes = {
       <Menubar>
         <Logo/>
         <MenuItems>
-        <MenuItem href="/data">Data</MenuItem>
+        <MenuItem href="#/data">Analyse</MenuItem>
           <MenuItem href="#/over">Over</MenuItem>
         </MenuItems>
       </Menubar>
