@@ -10,6 +10,7 @@ import About from './routes/About.svelte';
 import Person from './routes/Person.svelte';
 import Organization from './routes/Organization.svelte';
 import Search from './routes/Search.svelte';
+import Analysis from './routes/Analysis.svelte';
 import NotFound from './routes/NotFound.svelte';
 
 import { routeLoading, routeLoaded } from './routes_utils.js';
@@ -20,6 +21,7 @@ const routes = {
     // Exact path
     '/': Home,
     '/over': About,
+    '/analyse': Analysis,
     '/zoeken/:query': Search,
     '/p/:slug': Person,
     '/o/:slug': Organization,
@@ -36,7 +38,7 @@ const routes = {
       <Menubar>
         <Logo/>
         <MenuItems>
-        <MenuItem href="#/data">Analyse</MenuItem>
+        <MenuItem href="#/analyse">Analyse</MenuItem>
           <MenuItem href="#/over">Over</MenuItem>
         </MenuItems>
       </Menubar>
