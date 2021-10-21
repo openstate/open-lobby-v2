@@ -198,3 +198,8 @@ h6 {
 	line-height: 46px;
 	text-align: center;
 }
+
+.odd-explanation {
+	width: 60%;
+	margin: 0 auto;
+}
