@@ -30,6 +30,10 @@ const routes = {
 </script>
 <svelte:head>
   <title>Open Draaideur</title>
+  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://openstate.eu/wp-content/themes/open-state-theme/dist/images/logo-open-state-foundation-og.png">
+  <meta property="og:title" content="Open Draaideur">
+  <meta property="og:description" content="Wil jij ook weten waar onze politici terecht komen na hun ambtsperiode? Check het dan hier!">
 </svelte:head>
 
 <body>
