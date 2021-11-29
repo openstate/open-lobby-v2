@@ -29,7 +29,7 @@
 <p>De functies zijn op een systematische en zo objectief mogelijke manier gecategoriseerd aan de hand van de bedrijfsvorm, organisatiestructuur, bestuur en uitleg op de desbetreffende website. Net altijd werd volledig inzichtelijk welke positie een oud-politicus precies bekleed binnen de organisatie en in welke mate de oud-politicus zich richt op lobbyactiviteiten.</p>
 <p>Dit is de eerste versie van de tool en input blijft zeer welkom. Voor feedback en vragen kan contact op worden genomen met Rosa Juffer (Open State Foundation: <a href="mailto:rosa@openstate.eu">rosa@openstate.eu</a>).</p>
 
-<p name="sidn_fonds_logo"  style="text-align: right;"><img src="images/sidnlogo.svg" width=40% height=auto alt="Logo van het SIDN fonds"/></p>
+<p name="sidn_fonds_logo"  style="text-align: right;"><img src="images/sidnlogo.svg" width=20% height=auto alt="Logo van het SIDN fonds"/></p>
 
 </div>
 <script>
