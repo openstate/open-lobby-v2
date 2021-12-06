@@ -20,7 +20,7 @@
   </div>
 
   {#if r._source.memberships}
-  {#each r._source.memberships as m}
+  {#each r._source.memberships.reverse() as m}
     {#if m.start_date}
       <div class="odd-bar"> </div>
       {#if m.start_date.endsWith('-01-01')}
