@@ -27,10 +27,12 @@
     "@beyonk/svelte-social-auth": "^2.1.1",
     "@soddk/button": "file:/opt/app/libraries/svelte-oddk/packages/button/",
     "@soddk/common": "file:/opt/app/libraries/svelte-oddk/packages/common/",
+    "@soddk/icon-button": "file:/opt/app/libraries/svelte-oddk/packages/icon-button/",
     "@soddk/menubar": "file:/opt/app/libraries/svelte-oddk/packages/menubar/",
     "@soddk/tile": "file:/opt/app/libraries/svelte-oddk/packages/tile/",
     "@soddk/workspace": "file:/opt/app/libraries/svelte-oddk/packages/workspace/",
     "sirv-cli": "^1.0.0",
+    "svelte-fa": "^2.3.3",
     "svelte-flatpickr": "^3.2.0",
     "svelte-select": "^3.16.1",
     "svelte-spa-router": "^3.2.0"

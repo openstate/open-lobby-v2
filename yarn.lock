@@ -35,6 +35,18 @@
   dependencies:
     "@beyonk/async-script-loader" "^1.0.3"
 
+"@fortawesome/fontawesome-common-types@^0.2.36":
+  version "0.2.36"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.36.tgz#b44e52db3b6b20523e0c57ef8c42d315532cb903"
+  integrity sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg==
+
+"@fortawesome/free-solid-svg-icons@^5.15.4":
+  version "5.15.4"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.4.tgz#2a68f3fc3ddda12e52645654142b9e4e8fbb6cc5"
+  integrity sha512-JLmQfz6tdtwxoihXLg6lT78BorrFyCf59SAwBM6qV/0zXyVeDygJVb3fk+j5Qat+Yvcxp1buLTY5iDh1ZSAQ8w==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.36"
+
 "@material/animation@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@material/animation/-/animation-3.1.0.tgz#ab04e7c2e92ab370a2b28d12af1b88538d23014f"
@@ -885,13 +897,15 @@
 "@soddk/common@file:libraries/svelte-oddk/packages/common":
   version "0.0.1"
 
+"@soddk/icon-button@file:libraries/svelte-oddk/packages/icon-button":
+  version "0.0.1"
+  dependencies:
+    "@fortawesome/free-solid-svg-icons" "^5.15.4"
+
 "@soddk/menubar@file:libraries/svelte-oddk/packages/menubar":
   version "0.0.1"
 
 "@soddk/tile@file:libraries/svelte-oddk/packages/tile":
-  version "0.0.1"
-
-"@soddk/workspace@file:/opt/app/libraries/svelte-oddk/packages/workspace/":
   version "0.0.1"
 
 "@soddk/workspace@file:libraries/svelte-oddk/packages/workspace":
@@ -3855,6 +3869,11 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
+
+svelte-fa@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/svelte-fa/-/svelte-fa-2.3.3.tgz#b136b32f397ec64fb708b8a6ff5578bdd65f5be7"
+  integrity sha512-Izq+L4H9FEsoClSsYe35KuMP+2CUltJq8eP6qrQp9q52zYxRNMQTO3dYylr6K1fFmhKiWcw9q1hUzIiyrJx8dQ==
 
 svelte-flatpickr@^3.2.0:
   version "3.2.3"

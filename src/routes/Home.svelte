@@ -8,13 +8,77 @@
 <Searchbar />
 </div>
 
+<div>
+  <H1>H1 Header 1</H1>
+</div>
+
+<div>
+  <H2>H2 Header 2</H2>
+  <H2 variant="alt">H2 Header 2</H2>
+</div>
+
+<div>
+  <Tag>Tag</Tag>
+</div>
+
+<div>
+  <Tag variant="big">Grote tag</Tag>
+</div>
+<div>
+  <IconButton>
+    <Fa icon={faPen} size="1.20x" />
+  </IconButton>
+  <IconButton>
+    <Fa icon={faArrowUp} size="1.20x" />
+  </IconButton>
+  <IconButton>
+    <Fa icon={faArrowDown} size="1.20x" />
+  </IconButton>
+  <IconButton>
+    <Fa icon={faChevronLeft} size="1.20x" />
+  </IconButton>
+  <IconButton>
+    <Fa icon={faChevronRight} size="1.20x" />
+  </IconButton>
+</div>
+<div>
+  <IconButton>
+    <Fa icon={faSignOutAlt} size="1.20x" />
+  </IconButton>
+  <IconButton>
+    <Fa icon={faCog} size="1.20x" />
+  </IconButton>
+</div>
+
+<div>
+<h1>Font-awesome</h1>
+Notification :
+<Fa icon={faFlag} size="lg" /> Flag
+
+
+<i class='fas fa-bell' style='font-size:24px'></i>
+<br><br>
+Message or Inbox :
+<i class='fas fa-envelope' style='font-size:24px'></i>
+<br><br>
+Bookmark :
+<i class='fas fa-bookmark' style='font-size:24px'></i>
+<br><br>
+Like Button :
+<i class='fas fa-thumbs-up' style='font-size:24px'></i>
+<br><br>
+Calendar:
+<i class='fas fa-calendar-alt' style='font-size:24px'></i>
+</div>
 <script>
+import Fa from 'svelte-fa';
+import { faFlag, faPen, faArrowUp, faArrowDown, faChevronRight, faChevronLeft, faSignOutAlt, faCog } from '@fortawesome/free-solid-svg-icons';
 import {link, push} from 'svelte-spa-router';
 import Button from '@soddk/button';
-import Profile from '@soddk/common';
+import Profile, {H1, H2, Tag} from '@soddk/common';
 import Tile, {Header, Body, Actions, Action} from '@soddk/tile';
 import Searchbar from './Searchbar.svelte';
-
+import IconButton from '@soddk/icon-button';
 import { search_request } from '../sources.js';
 </script>
 
