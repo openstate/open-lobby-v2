@@ -32,7 +32,20 @@
       <Tile format="short" on:click={(e) => handleClick(e, r)}>
         <Header>
           <Profile byline="{m.organization.classification}">
-          { m .organization.name }
+          { m .organization.name }<br>
+          {#if m.start_date || m.end_date }
+            {#if m.start_date}
+            { m.start_date }
+            {:else}
+            ?
+            {/if}
+            &dash;
+            {#if m.end_date}
+            { m.end_date }
+            {:else}
+            ?
+            {/if}
+          {/if}
           </Profile>
         </Header>
         <Body>
