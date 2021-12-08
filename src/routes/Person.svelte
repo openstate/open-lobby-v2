@@ -20,42 +20,34 @@
   </div>
 
   {#if r._source.memberships}
-  <code><pre>
-  { JSON.stringify(r, null, 2) }
-  </pre></code>
-
   {#each groupMemberships(r._source.sorted_memberships) as [k,v]}
-    <p>{k}: {v}</p>
-  {/each}
-  {#each r._source.memberships.reverse() as m}
-    {#if m.start_date}
-      <div class="odd-bar"> </div>
-      {#if m.start_date.endsWith('-01-01')}
-      <div class="odd-year">{m.start_date.slice(0,4)}</div>
-      {:else}
-      <div class="odd-year">{m.start_date}</div>
-      {/if}
-    {/if}
+    {#if k != 'undefined'}
     <div class="odd-bar"> </div>
-    <div class="odd-search-result">
-    <Tile format="short" on:click={(e) => handleClick(e, r)}>
-      <Header>
-        <Profile byline="{m.organization.classification}">
-        { m .organization.name }
-        </Profile>
-      </Header>
-      <Body>
-      <!--
-      <Body image="https://via.placeholder.com/250x170">
-      <h3>Titel van Artikel</h3> -->
-      </Body>
-      <!--
-      <Actions>
-        <Action on:click={handleClick}>Deel op Twitter</Action>
-        <Action on:click={handleClick}>Deel op Facebook</Action>
-      </Actions> -->
-    </Tile>
-    </div>
+    <div class="odd-year">{k}</div>
+    {/if}
+
+    {#each v as m}
+      <div class="odd-bar"> </div>
+      <div class="odd-search-result">
+      <Tile format="short" on:click={(e) => handleClick(e, r)}>
+        <Header>
+          <Profile byline="{m.organization.classification}">
+          { m .organization.name }
+          </Profile>
+        </Header>
+        <Body>
+        <!--
+        <Body image="https://via.placeholder.com/250x170">
+        <h3>Titel van Artikel</h3> -->
+        </Body>
+        <!--
+        <Actions>
+          <Action on:click={handleClick}>Deel op Twitter</Action>
+          <Action on:click={handleClick}>Deel op Facebook</Action>
+        </Actions> -->
+      </Tile>
+      </div>
+    {/each}
   {/each}
   {/if}
 
