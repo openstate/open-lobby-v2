@@ -21,7 +21,7 @@
 
   {#if r._source.memberships}
   <code><pre>
-  { JSON.stringify(groupBy(r._source.memberships, 'start_date', getYear), null, 2) }
+  { JSON.stringify(r, null, 2) }
   </pre></code>
 
   {#each r._source.memberships.reverse() as m}
@@ -85,22 +85,9 @@ import { handleClick } from '../utils.js';
 // You need to define the component prop "params"
 export let params = {};
 
-var getYear = function(sdate) {
-  if (sdate) {
-    return sdate.slice(0,4);
-  }
-}
 </script>
 
 <script context="module">
-
-var groupBy = function(xs, key, fnc) {
-  return xs.reduce(function(rv, x) {
-    var rkey = (typeof(fnc) === 'undefined') ? x[key] : fnc(x[key]);
-    (rv[rkey] = rv[rkey] || []).push(x);
-    return rv;
-  }, {});
-};
 
 export function perform_find_person(per_slug) {
   console.log('executing person search from module export');

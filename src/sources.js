@@ -1,6 +1,20 @@
 import { get } from 'svelte/store';
 import { results, total_results, main_obj } from './stores.js';
 
+var groupBy = function(xs, key, fnc) {
+  return xs.reduce(function(rv, x) {
+    var rkey = (typeof(fnc) === 'undefined') ? x[key] : fnc(x[key]);
+    (rv[rkey] = rv[rkey] || []).push(x);
+    return rv;
+  }, {});
+};
+
+var getYear = function(sdate) {
+  if (sdate) {
+    return sdate.slice(0,4);
+  }
+}
+
 function api_request(params, index) {
   var url = window.location.protocol + '//api.opendraaideur.nl';
   if (typeof(index) !== 'undefined') {
@@ -20,7 +34,12 @@ function api_request(params, index) {
         } else {
           main_obj.set(null);
         }
-        results.set(data.hits.hits);
+        results.set(data.hits.hits.map(function (i) {
+          if (typeof(i._source.memberships) !== 'undefined') {
+            i._source.sorted_memberships = groupBy(i._source.memberships, 'start_date', getYear);
+          }
+          return i;
+        }));
         total_results.set(data.hits.total.value || 0);
       });
 }
