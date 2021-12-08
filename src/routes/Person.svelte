@@ -24,6 +24,9 @@
   { JSON.stringify(r, null, 2) }
   </pre></code>
 
+  {#each groupMemberships(r._source.sorted_memberships) as [k,v]}
+    <p>{k}: {v}</p>
+  {/each}
   {#each r._source.memberships.reverse() as m}
     {#if m.start_date}
       <div class="odd-bar"> </div>
@@ -85,6 +88,32 @@ import { handleClick } from '../utils.js';
 // You need to define the component prop "params"
 export let params = {};
 
+function groupMemberships(memberships) {
+  var membership_entries = Object.entries(memberships);
+  membership_entries.sort(sortYears);
+  return membership_entries.reverse();
+}
+
+function sortYears(a, b) {
+  var ya = a[0];
+  var oa = a[1];
+  var yb = b[0];
+  var ob = b[1];
+  if (ya == 'undefined') {
+    return -1;
+  }
+  if (yb == 'undefined') {
+    return 1;
+  }
+  if (ya == yb) {
+    return 0;
+  }
+  if (ya > yb) {
+    return 1;
+  } else {
+    return -1;
+  }
+}
 </script>
 
 <script context="module">
