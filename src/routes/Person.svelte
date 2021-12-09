@@ -1,83 +1,90 @@
 {#each $results as r}
-  <div class="odd-search-result">
-  <Tile format="short" on:click={(e) => handleClick(e, r)}>
-    <Header>
-      <Profile>
-      { r._source.name }
-      </Profile>
-    </Header>
-    <Body>
-    <!--
-    <Body image="https://via.placeholder.com/250x170">
-    <h3>Titel van Artikel</h3> -->
-    </Body>
-    <!--
-    <Actions>
-      <Action on:click={handleClick}>Deel op Twitter</Action>
-      <Action on:click={handleClick}>Deel op Facebook</Action>
-    </Actions> -->
-  </Tile>
-  </div>
+<div class="odd-person-container">
+  <main>
+    <div class="odd-search-result">
+    <Tile format="short" on:click={(e) => handleClick(e, r)}>
+      <Header>
+        <Profile>
+        { r._source.name }
+        </Profile>
+      </Header>
+      <Body>
+      <!--
+      <Body image="https://via.placeholder.com/250x170">
+      <h3>Titel van Artikel</h3> -->
+      </Body>
+      <!--
+      <Actions>
+        <Action on:click={handleClick}>Deel op Twitter</Action>
+        <Action on:click={handleClick}>Deel op Facebook</Action>
+      </Actions> -->
+    </Tile>
+    </div>
 
-  {#if r._source.memberships}
-  {#each groupMemberships(r._source.sorted_memberships) as [k,v]}
-    {#if k != 'undefined'}
-    <div class="odd-bar"> </div>
-    <div class="odd-year">{k}</div>
+    {#if r._source.memberships}
+      {#each groupMemberships(r._source.sorted_memberships) as [k,v]}
+        {#each v as m}
+          <div class="odd-bar"> </div>
+          <div class="odd-search-result">
+          <Tile format="short" on:click={(e) => handleClick(e, r)}>
+            <Header>
+              <Profile byline="{m.organization.classification}">
+              { m .organization.name }<br>
+              {#if m.start_date || m.end_date }
+                {#if m.start_date}
+                { m.start_date }
+                {:else}
+                ?
+                {/if}
+                &dash;
+                {#if m.end_date}
+                { m.end_date }
+                {:else}
+                ?
+                {/if}
+              {/if}
+              </Profile>
+            </Header>
+            <Body>
+            <!--
+            <Body image="https://via.placeholder.com/250x170">
+            <h3>Titel van Artikel</h3> -->
+            </Body>
+            <!--
+            <Actions>
+              <Action on:click={handleClick}>Deel op Twitter</Action>
+              <Action on:click={handleClick}>Deel op Facebook</Action>
+            </Actions> -->
+          </Tile>
+          </div>
+        {/each}
+
+        {#if k != 'undefined'}
+        <div class="odd-bar"> </div>
+        <div class="odd-year">{k}</div>
+        {/if}
+      {/each}
     {/if}
+  </main>
 
-    {#each v as m}
-      <div class="odd-bar"> </div>
-      <div class="odd-search-result">
-      <Tile format="short" on:click={(e) => handleClick(e, r)}>
-        <Header>
-          <Profile byline="{m.organization.classification}">
-          { m .organization.name }<br>
-          {#if m.start_date || m.end_date }
-            {#if m.start_date}
-            { m.start_date }
-            {:else}
-            ?
-            {/if}
-            &dash;
-            {#if m.end_date}
-            { m.end_date }
-            {:else}
-            ?
-            {/if}
-          {/if}
-          </Profile>
-        </Header>
-        <Body>
-        <!--
-        <Body image="https://via.placeholder.com/250x170">
-        <h3>Titel van Artikel</h3> -->
-        </Body>
-        <!--
-        <Actions>
-          <Action on:click={handleClick}>Deel op Twitter</Action>
-          <Action on:click={handleClick}>Deel op Facebook</Action>
-        </Actions> -->
-      </Tile>
-      </div>
-    {/each}
-  {/each}
-  {/if}
 
   {#if r._source.description}
-  <div class="odd-year">Nevenfuncties</div>
+  <aside>
+    <div class="odd-year">Nevenfuncties</div>
 
-  <div class="odd-search-result">
-  <Tile format="short">
-    <Body>
-    <!--
-    <Body image="https://via.placeholder.com/250x170">
-    <h3>Titel van Artikel</h3> -->
-    { r._source.description }
-    </Body>
-  </Tile>
-  </div>
+    <div class="odd-search-result">
+    <Tile format="short">
+      <Body>
+      <!--
+      <Body image="https://via.placeholder.com/250x170">
+      <h3>Titel van Artikel</h3> -->
+      { r._source.description }
+      </Body>
+    </Tile>
+    </div>
+  </aside>
   {/if}
+</div>
 {/each}
 
 <script>
