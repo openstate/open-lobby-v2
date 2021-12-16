@@ -8,6 +8,7 @@ Deprecated==1.2.11
 elasticsearch==7.10.1
 Flask==1.1.2
 fusionauth-client==1.23.0
+gspread==5.0.0
 html5lib==1.1
 idna==2.8
 itsdangerous==1.1.0
