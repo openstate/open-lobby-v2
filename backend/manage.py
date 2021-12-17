@@ -265,7 +265,9 @@ def es_load_csv(data_file):
 def gsheet_load(auth_file, url):
     gc = gspread.service_account(auth_file)
     gs = gc.open_by_url(url)
-    print(gs)
+    rows = worksheet.get_values()
+
+    print(len(rows))
 
 # Register commands explicitly with groups, so we can easily use the docstring
 # wrapper
