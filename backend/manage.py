@@ -270,17 +270,18 @@ def es_load_csv(data_file):
 def gsheet_load(auth_file, url):
     gc = gspread.service_account(auth_file)
     gs = gc.open_by_url(url)
-    ws = gs.get_worksheet(0)
-    rows = ws.get_values()
-    header = []
     result = []
-    for row in rows:
-        if len(header) == 0:
-            if row[0] == 'STATUS':
-                header = row
-        else:
-            if len(header) > 0:
-                result.append(dict(zip(header,row)))
+    for s in [0,2]:
+        ws = gs.get_worksheet(s)
+        rows = ws.get_values()
+        header = []
+        for row in rows:
+            if len(header) == 0:
+                if row[0] == 'STATUS':
+                    header = row
+            else:
+                if len(header) > 0:
+                    result.append(dict(zip(header,row)))
     # print(result)
     process_rows(result)
 
