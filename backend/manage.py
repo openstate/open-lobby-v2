@@ -18,6 +18,7 @@ import re
 import translitcodec
 import requests
 import click
+import gspread
 from click.core import Command
 from click.decorators import _make_command
 from elasticsearch.exceptions import NotFoundError
@@ -258,11 +259,20 @@ def es_load_csv(data_file):
     data = list(orgs.values()) + list(parties.values()) + list(persons.values())
     result = bulk(es, data, False)
 
+@command('load_gsheet')
+@click.option('--auth_file', default='./opendraaideur-8c80c02fdfe2.json')
+@click.option('--url', default='https://docs.google.com/spreadsheets/d/1fLLxPV73nza7ByrYZRqhxuXpblTU-0UsBqDpVuIS52I/edit#gid=2049648150')
+def gsheet_load(auth_file, url):
+    gc = gspread.service_account(auth_file)
+    gs = gc.open_by_url(url)
+    print(gs)
+
 # Register commands explicitly with groups, so we can easily use the docstring
 # wrapper
 elasticsearch.add_command(es_put_template)
 elasticsearch.add_command(es_load)
 elasticsearch.add_command(es_load_csv)
+elasticsearch.add_command(gsheet_load)
 
 if __name__ == '__main__':
     cli()
