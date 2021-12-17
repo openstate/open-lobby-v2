@@ -176,6 +176,25 @@ def extract_parties(rows):
     return result
 
 
+def process_rows(rows):
+    orgs = extract_organizations(rows)
+    #pprint(orgs)
+    parties = extract_parties(rows)
+    #pprint(parties)
+    persons = extract_persons(rows, orgs, parties)
+    #pprint(persons)
+    # pprint(persons["arno-rutte"])
+    # pprint(orgs['vintura'])
+    # pprint(persons["wybren-van-haga"])
+    # pprint(persons["elbert-dijkgraaf"])
+    # pprint(persons["martijn-bolkestein"])
+    # print(orgs["tweede-kamer"])
+    config = load_config()
+    es = setup_elasticsearch(config)
+    data = list(orgs.values()) + list(parties.values()) + list(persons.values())
+    result = bulk(es, data, False)
+
+
 @click.group()
 @click.version_option()
 def cli():
@@ -241,23 +260,9 @@ def es_load_csv(data_file):
     rows = []
     for row in reader:
         rows.append(row)
-        pprint(row)
-    orgs = extract_organizations(rows)
-    #pprint(orgs)
-    parties = extract_parties(rows)
-    #pprint(parties)
-    persons = extract_persons(rows, orgs, parties)
-    #pprint(persons)
-    # pprint(persons["arno-rutte"])
-    # pprint(orgs['vintura'])
-    # pprint(persons["wybren-van-haga"])
-    # pprint(persons["elbert-dijkgraaf"])
-    # pprint(persons["martijn-bolkestein"])
-    # print(orgs["tweede-kamer"])
-    config = load_config()
-    es = setup_elasticsearch(config)
-    data = list(orgs.values()) + list(parties.values()) + list(persons.values())
-    result = bulk(es, data, False)
+        #pprint(row)
+    process_rows(rows)
+
 
 @command('load_gsheet')
 @click.option('--auth_file', default='./opendraaideur-8c80c02fdfe2.json')
@@ -265,9 +270,19 @@ def es_load_csv(data_file):
 def gsheet_load(auth_file, url):
     gc = gspread.service_account(auth_file)
     gs = gc.open_by_url(url)
-    rows = worksheet.get_values()
-
-    print(len(rows))
+    ws = gs.get_worksheet(0)
+    rows = ws.get_values()
+    header = []
+    result = []
+    for row in rows:
+        if len(header) == 0:
+            if row[0] == 'STATUS':
+                header = row
+        else:
+            if len(header) > 0:
+                result.append(dict(zip(header,row)))
+    # print(result)
+    process_rows(result)
 
 # Register commands explicitly with groups, so we can easily use the docstring
 # wrapper
